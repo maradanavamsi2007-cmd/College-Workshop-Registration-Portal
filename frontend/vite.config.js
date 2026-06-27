@@ -6,4 +6,12 @@ export default defineConfig({
   plugins: [react()],
   envDir: '../',
   envPrefix: ['VITE_', 'SUPABASE_'],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      }
+    }
+  }
 })

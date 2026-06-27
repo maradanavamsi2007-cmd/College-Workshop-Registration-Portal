@@ -73,4 +73,12 @@ async function startServer() {
   }
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+} else {
+  db.initDb().catch(err => {
+    console.error('Failed to initialize database on Vercel startup:', err);
+  });
+}
+
+module.exports = app;

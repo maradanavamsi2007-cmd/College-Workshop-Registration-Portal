@@ -125,7 +125,7 @@ export default function StudentDashboard() {
 
   const handleDownload = async (code) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/certificates/download/${code}`);
+      const response = await fetch(`/api/certificates/download/${code}`);
       if (!response.ok) {
         const text = await response.text();
         let message = 'Failed to download certificate.';
